@@ -18,7 +18,7 @@ const MessageInput: React.FC<MessageInputProps> = ({ onSendMessage }) => {
   };
 
   return (
-    <div className="p-4 border-t border-mint-green/30 bg-pastel-green">
+    <div className="p-4 border-t border-border">
       <div className="max-w-3xl mx-auto relative">
         <input
           type="text"
@@ -26,14 +26,14 @@ const MessageInput: React.FC<MessageInputProps> = ({ onSendMessage }) => {
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-          className="w-full rounded-full border border-mint-green/30 bg-white px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-mint-green/50"
+          className="w-full rounded-full border border-input bg-background px-4 py-3 pr-12"
         />
         <Button 
           size="icon" 
-          className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-mint-green hover:bg-mint-green/90"
+          className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full"
           onClick={handleSendMessage}
         >
-          <Send className="h-4 w-4 text-white" />
+          <Send className="h-4 w-4" />
         </Button>
       </div>
     </div>

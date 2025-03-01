@@ -13,7 +13,7 @@ interface MessageListProps {
 
 const MessageList: React.FC<MessageListProps> = ({ messages, formatTime }) => {
   return (
-    <ScrollArea className="flex-grow p-4 bg-pastel-green/50">
+    <ScrollArea className="flex-grow p-4">
       <div className="space-y-4 max-w-3xl mx-auto">
         {messages.map((message) => (
           <motion.div
@@ -30,13 +30,13 @@ const MessageList: React.FC<MessageListProps> = ({ messages, formatTime }) => {
               className={cn(
                 "max-w-[80%] rounded-2xl p-4",
                 message.sender === 'user' 
-                  ? "bg-mint-green text-white rounded-tr-none"
-                  : "bg-muted-cyan/20 text-muted-cyan rounded-tl-none"
+                  ? "bg-primary text-primary-foreground rounded-tr-none"
+                  : "bg-secondary text-secondary-foreground rounded-tl-none"
               )}
             >
               <div className="flex items-center mb-1">
                 {message.sender === 'bot' && (
-                  <Brain className="h-4 w-4 mr-2 text-mint-green" />
+                  <Brain className="h-4 w-4 mr-2" />
                 )}
                 <span className="font-medium">
                   {message.sender === 'user' ? 'You' : 'MindSync AI'}
