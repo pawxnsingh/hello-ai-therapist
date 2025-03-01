@@ -7,6 +7,8 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 import { ChatSession } from '@/types/chat';
+import { useUser, useClerk } from '@clerk/clerk-react';
+import { AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 interface ChatSidebarProps {
   chatSessions: ChatSession[];
@@ -25,6 +27,13 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
   setSidebarOpen,
   formatDate
 }) => {
+  const { user, isLoaded } = useUser();
+  const { signOut } = useClerk();
+
+  const handleSignOut = () => {
+    signOut();
+  };
+
   return (
     <aside 
       className={cn(
@@ -83,18 +92,28 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Avatar>
-              <User className="h-5 w-5" />
+              {isLoaded && user?.imageUrl ? (
+                <AvatarImage src={user.imageUrl} alt={user.fullName || "User"} />
+              ) : (
+                <AvatarFallback>
+                  <User className="h-5 w-5" />
+                </AvatarFallback>
+              )}
             </Avatar>
             <div>
-              <p className="text-sm font-medium">User Profile</p>
-              <p className="text-xs text-muted-foreground">user@example.com</p>
+              <p className="text-sm font-medium">
+                {isLoaded && user 
+                  ? (user.fullName || user.username || "User") 
+                  : "User Profile"}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {isLoaded && user ? user.primaryEmailAddress?.emailAddress : "user@example.com"}
+              </p>
             </div>
           </div>
-          <Link to="/">
-            <Button variant="ghost" size="icon">
-              <LogOut className="h-4 w-4" />
-            </Button>
-          </Link>
+          <Button variant="ghost" size="icon" onClick={handleSignOut}>
+            <LogOut className="h-4 w-4" />
+          </Button>
         </div>
       </div>
     </aside>
