@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useUser } from '@clerk/clerk-react';
 
 interface ChatHeaderProps {
   title: string;
@@ -11,8 +10,6 @@ interface ChatHeaderProps {
 }
 
 const ChatHeader: React.FC<ChatHeaderProps> = ({ title, setSidebarOpen }) => {
-  const { user, isLoaded } = useUser();
-  
   return (
     <header className="h-16 border-b border-border flex items-center px-4 justify-between">
       <div className="flex items-center space-x-3">
@@ -27,11 +24,6 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ title, setSidebarOpen }) => {
         <h3 className="font-medium">{title}</h3>
       </div>
       <div className="flex items-center space-x-2">
-        {isLoaded && user && (
-          <span className="text-sm text-muted-foreground mr-2">
-            {user.fullName || user.username}
-          </span>
-        )}
         <Link to="/">
           <Button variant="ghost" size="sm">
             <ArrowLeft className="h-4 w-4 mr-2" />
