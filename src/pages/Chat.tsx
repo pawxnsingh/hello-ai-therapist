@@ -94,7 +94,7 @@ const Chat = () => {
     },
     {
       id: '5',
-      content: 'Public speaking anxiety is something many people experience. Let's break this down into manageable parts. First, it's important to recognize that feeling nervous about presentations is normal and even experienced speakers feel this way. Have you had experience with public speaking before?',
+      content: "Public speaking anxiety is something many people experience. Let's break this down into manageable parts. First, it's important to recognize that feeling nervous about presentations is normal and even experienced speakers feel this way. Have you had experience with public speaking before?",
       sender: 'bot',
       timestamp: new Date(2023, 5, 15, 14, 38)
     }
