@@ -1,50 +1,36 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom color scheme */
+:root {
+  --pastel-green: #E8F5E9;
+  --mint-green: #66BB6A;
+  --light-green: #A5D6A7;
+  --muted-cyan: #4DB6AC;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 220 20% 10%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 224 20% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 20% 10%;
-
-    --primary: 262 83% 58%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 20% 10%;
-
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 10% 40%;
-
-    --accent: 262 83% 96%;
-    --accent-foreground: 262 83% 40%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262 83% 58%;
-
-    --radius: 1rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: var(--pastel-green);
+    --foreground: #1a1a1a;
+    
+    --primary: var(--mint-green);
+    --primary-foreground: white;
+    
+    --secondary: var(--light-green);
+    --secondary-foreground: #1a1a1a;
+    
+    --accent: var(--muted-cyan);
+    --accent-foreground: white;
+    
+    --border: var(--mint-green);
+    --input: var(--mint-green);
+    --ring: var(--mint-green);
+    
+    --radius: 0.5rem;
   }
-
+  
   .dark {
     --background: 224 20% 8%;
     --foreground: 210 40% 98%;
@@ -164,4 +150,21 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Custom classes for our color scheme */
+.bg-pastel-green {
+  background-color: var(--pastel-green);
+}
+
+.bg-mint-green {
+  background-color: var(--mint-green);
+}
+
+.text-mint-green {
+  color: var(--mint-green);
+}
+
+.text-muted-cyan {
+  color: var(--muted-cyan);
 }
