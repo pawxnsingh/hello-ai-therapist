@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Brain, MessageSquare, Sparkles } from 'lucide-react';
 import CircularButton from './CircularButton';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -44,9 +45,11 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Button size="lg" className="rounded-full h-14 px-8">
-                Start Free Trial
-              </Button>
+              <Link to="/chat">
+                <Button size="lg" className="rounded-full h-14 px-8">
+                  Start Chatting Now
+                </Button>
+              </Link>
               <Button size="lg" variant="outline" className="rounded-full h-14 px-8">
                 Learn More
               </Button>
